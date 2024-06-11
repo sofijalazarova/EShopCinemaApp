@@ -1,0 +1,164 @@
+﻿@model List<EShop.Domain.DomainModels.Movie>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/StyleSheet.css" />
+</head>
+
+
+<section id="hero">
+    <div>
+        <h1 style="font-size: 4.0625rem; font-weight: 700; line-height: 120%;">
+            Spider-man 3
+        </h1>    
+        <ul class="soon">
+            <li><p>S</p></li>
+            <li><p>O</p></li>
+            <li><p>O</p></li>
+            <li><p>N</p></li>           
+        </ul>
+    </div>
+</section>
+
+
+<section class="movies">
+    <header>
+        <h2>Most popular right now!</h2>
+    </header>
+
+    <ul class="gallery">
+
+        @for(int i = 0; i < 4; i++)
+        {
+            var item = Model[i];
+
+            <li>
+                <figure>
+                    <a href="#"><img src="@item.MovieImage" alt="Movie Image"></a>
+                    <figcaption>
+                        <main>                            
+                            <h3><em>@item.MovieTitle</em></h3>
+                            <p>@item.MovieDescription</p>
+                        </main>
+
+                        <footer class="myFooter">
+                            <div>                               
+                                <p class="price">@item.TicketPrice$</p>
+                            </div>
+
+                            <a asp-controller="Movies" asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a>
+                        </footer>
+                    </figcaption>
+                </figure>
+            </li>            
+        }                   
+    </ul>
+</section>
+
+
+<section id="portfolio" style="overflow-x: hidden;">
+    <div class="entry">
+        <div class="entry__meta text-right" style="border-bottom: 1px solid black">
+            <h5>We bring you the latest blockbusters, timeless classics, and exclusive screenings, all in the comfort of our state-of-the-art theaters. Whether you're a die-hard movie buff or looking for a fun night out, we have something for everyone.</h5>
+        </div>
+        <figure class="entry__media">
+            <img style="border: 1px solid black" src="~/images/cinemaImg1.jpg" alt="Cinema image">
+        </figure>
+    </div>
+    <div class="entry entry--reverse">
+        <figure class="entry__media">
+            <img style="border: 1px solid black" src="~/images/cinemaImg2.jpg" alt="Cinema image">
+        </figure>
+        <div class="entry__meta" style="border-top: 1px solid black">
+            <h5>Our cinema has been dedicated to providing an exceptional movie-going experience. Our mission is to create a welcoming environment where everyone can enjoy the magic of the movies. From our cutting-edge technology to our customer-first approach, we strive to make every visit memorable.</h5>
+        </div>
+    </div>
+</section>
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
+
+
+<script>
+    
+    const entries = document.querySelectorAll('.entry')
+    entries.forEach(entry => {
+        let entryMeta = entry.querySelector('.entry__meta')
+        let entryMedia = entry.querySelector('.entry__media')
+        let isReverse = entry.classList.contains('entry--reverse');
+
+        let tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: entry,
+                start: 'top bottom',
+                end: 'bottom 90%',
+                scrub: true,
+            }
+        })
+
+        if (isReverse) {
+            tl.fromTo(entryMeta, { xPercent: 100, opacity: 0 }, { xPercent: 0, opacity: 1 });
+            tl.fromTo(entryMedia, { xPercent: -100, opacity: 0 }, { xPercent: 0, opacity: 1 }, '<');
+        } else {
+            tl.fromTo(entryMeta, { xPercent: -100, opacity: 0 }, { xPercent: 0, opacity: 1 });
+            tl.fromTo(entryMedia, { xPercent: 100, opacity: 0 }, { xPercent: 0, opacity: 1 }, '<');
+        }
+    })
+
+    const lenis = new Lenis()
+
+    lenis.on('scroll', ScrollTrigger.update)
+
+    gsap.ticker.add((time)=>{
+        lenis.raf(time * 1000)
+    })
+
+    gsap.ticker.lagSmoothing(0)
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
+
+
+<script>
+    
+
+    const entries = document.querySelectorAll('.entry')
+    entries.forEach(entry => {
+        let entryMeta = entry.querySelector('.entry__meta')
+        let entryMedia = entry.querySelector('.entry__media')
+        let isReverse = entry.classList.contains('entry--reverse');
+
+        let tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: entry,
+                start: 'top bottom',
+                end: 'bottom 90%',
+                scrub: true,
+            }
+        })
+
+        if (isReverse) {
+            tl.fromTo(entryMeta, { xPercent: 100, opacity: 0 }, { xPercent: 0, opacity: 1 });
+            tl.fromTo(entryMedia, { xPercent: -100, opacity: 0 }, { xPercent: 0, opacity: 1 }, '<');
+        } else {
+            tl.fromTo(entryMeta, { xPercent: -100, opacity: 0 }, { xPercent: 0, opacity: 1 });
+            tl.fromTo(entryMedia, { xPercent: 100, opacity: 0 }, { xPercent: 0, opacity: 1 }, '<');
+        }
+    })
+
+    const lenis = new Lenis()
+
+    lenis.on('scroll', ScrollTrigger.update)
+
+    gsap.ticker.add((time) => {
+        lenis.raf(time * 1000)
+    })
+
+    gsap.ticker.lagSmoothing(0)
+</script>

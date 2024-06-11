@@ -1,0 +1,121 @@
+﻿img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.myContainer {
+    background-color: white;
+    padding: .5rem;
+    display: grid;
+    grid-template-columns: 35rem 1fr;
+    align-items: center;
+    min-height: 35rem;
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.5;
+}
+
+.well {
+    background-color: white;
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-self: stretch;
+    border-radius: .5rem;
+}
+
+h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 .5em;
+}
+
+h2 {
+    font-size: 1rem;
+    font-weight: 200;
+    margin: 0 0 .5em;
+    color: #444546;
+}
+
+hgroup {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+form {
+    width: 100%;
+}
+
+    form > div {
+        position: relative;
+        margin-bottom: 2rem;
+    }
+
+label {
+    position: absolute;
+    left: 0;
+    top: .25rem;
+    color: #737374;
+    transition: all .3s;
+    cursor: pointer;
+}
+
+input {
+    border: none;
+    border-bottom: 1px solid #737374;
+    height: 2.25rem;
+    width: 100%;
+    outline: none;
+    transition: border-color .3s ease;
+}
+
+    input:focus {
+        border-color: #151618;
+    }
+
+        input:focus + label, input:valid + label {
+            transform: translateY(-1.25rem);
+            font-size: .8125rem;
+            color: #151618;
+        }
+
+a {
+    color: #2FA2BD;
+    transition: color .3s ease-in-out;
+}
+
+    a:hover {
+        color: #151618;
+    }
+
+.button {
+    width: 100%;
+    background-color: #151618;
+    appearance: none;
+    border: none;
+    padding: 1rem 2rem;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 100px;
+    font-weight: bold;
+    transition: background-color .3s, transform .2s;
+}
+
+    .button:hover {
+        background-color: #2c2d2f;
+    }
+
+    .button:active {
+        transform: translate3d(3px, 3px, 0);
+    }
+
+
+
+
+
+
+

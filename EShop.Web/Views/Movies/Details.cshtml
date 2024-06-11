@@ -1,0 +1,41 @@
+﻿@model EShop.Domain.DomainModels.Movie
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="~/css/MovieDetailsPage.css" />
+
+
+<section id="feature" style="background-color:white; color: black">
+    <div id="content" class="p-3">
+        <header>
+            <h2><em>@Html.DisplayFor(model => model.MovieTitle)</em></h2>
+            <p class="large muted">@Html.DisplayFor(model => model.MovieDescription)</p>
+        </header>
+
+        <div id="grid">
+            <div>
+                <p>Genre: <b>@Html.DisplayFor(model => model.MovieGenre)</b></p>
+                <p>Movie year: <b>@Html.DisplayFor(model => model.MovieYear)</b></p>
+                <p>Directed by: <b>@Html.DisplayFor(model => model.MovieDirector)</b></p>
+                <p>Movie duration: <b>@Html.DisplayFor(model => model.MovieDuration)min</b></p>
+                <p>Release date: <b>@Html.DisplayFor(model => model.ReleaseDate)</b></p>
+                <p style="font-size: 2.25rem"><img src="~/images/star.png" width="10%" height="10%"/> @Html.DisplayFor(model => model.MovieRating)</p>
+                <h2 style="font-size: 2.25rem" class="price">Ticket price: <b>@Html.DisplayFor(model => model.TicketPrice)$</b></h2>
+
+                <a asp-controller="Movies" asp-action="AddTicketToCart" asp-route-id="@Model.Id" class="btn btn-success"><h3>Add to Cart</h3></a>
+            </div>
+            <div>
+                <img class="myMovieImage" src="@Html.DisplayFor(model => model.MovieImage)" alt="Movie Image" width="100%" height="90%">
+            </div>
+        </div>
+    </div>
+</section>
+ 

@@ -1,0 +1,84 @@
+﻿@model EShop.Domain.DomainModels.Movie
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+<h1 class="m-4">Edit Movie</h1>
+
+<hr />
+<div class="row m-5">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="MovieTitle" class="control-label"></label>
+                <input asp-for="MovieTitle" class="form-control" />
+                <span asp-validation-for="MovieTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MovieImage" class="control-label"></label>
+                <input asp-for="MovieImage" class="form-control" />
+                <span asp-validation-for="MovieImage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MovieCoverImage" class="control-label"></label>
+                <input asp-for="MovieCoverImage" class="form-control" />
+                <span asp-validation-for="MovieCoverImage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MovieDescription" class="control-label"></label>
+                <input asp-for="MovieDescription" class="form-control" />
+                <span asp-validation-for="MovieDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MovieDirector" class="control-label"></label>
+                <input asp-for="MovieDirector" class="form-control" />
+                <span asp-validation-for="MovieDirector" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MovieGenre" class="control-label"></label>
+                <input asp-for="MovieGenre" class="form-control" />
+                <span asp-validation-for="MovieGenre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TicketPrice" class="control-label"></label>
+                <input asp-for="TicketPrice" class="form-control" />
+                <span asp-validation-for="TicketPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MovieRating" class="control-label"></label>
+                <input asp-for="MovieRating" class="form-control" />
+                <span asp-validation-for="MovieRating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MovieYear" class="control-label"></label>
+                <input asp-for="MovieYear" class="form-control" />
+                <span asp-validation-for="MovieYear" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MovieDuration" class="control-label"></label>
+                <input asp-for="MovieDuration" class="form-control" />
+                <span asp-validation-for="MovieDuration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReleaseDate" class="control-label"></label>
+                <input asp-for="ReleaseDate" class="form-control" />
+                <span asp-validation-for="ReleaseDate" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,67 @@
+﻿@model List<EShop.Domain.DomainModels.Movie>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@2.0.0/modern-normalize.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+
+
+
+
+
+
+<head>
+    <link rel="stylesheet" href="~/css/StyleSheet.css" />
+</head>
+
+
+<section class="container mt-3 mb-3" style="background-color: white">
+
+    <a asp-controller="Movies" asp-action="Create" class="btn btn-info mb-2">Add new movie</a>
+    
+
+    <ul class="gallery">
+
+            @for(int i = 0; i < Model.Count(); i++)
+            {
+                var item = Model[i];
+                <li>
+                    <figure>
+                        <a><img class="movieImage" src="@item.MovieImage" alt="Movie Image"></a>
+                        <figcaption>
+                            <main>
+                                <h3>@item.MovieTitle</h3>
+                                <p class="cutoff-text">@item.MovieDescription</p>
+                            </main>
+                            <div class="myFooter">
+                                <div>
+                                    <p class="small">From</p>
+                                    <p class="price">@item.TicketPrice$</p>
+                                </div>
+                                <a asp-controller="Movies" asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a>                            
+                            </div>
+                        </figcaption>
+                     
+                    </figure>
+                <div class="mt-3">
+                    <a asp-controller="Movies" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-secondary">Edit</a>
+                    <a asp-controller="Movies" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                </div>
+                </li>
+            }       
+    </ul>
+</section>
+
+
+
+
+
+
+

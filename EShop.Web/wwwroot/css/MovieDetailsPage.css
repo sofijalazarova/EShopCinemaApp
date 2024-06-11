@@ -1,0 +1,134 @@
+﻿html {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+body {
+    color: black;
+    margin: 0;
+}
+
+.muted {
+    color: #8A8B8C;
+}
+
+h2 {
+    margin: 1rem 0;
+    font-size: 2.25rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.price {
+    font-family: 'Playfair Display', serif;
+    font-variant-numeric: lining-nums proportional-nums;
+    font-size: 1.125rem;
+}
+
+h3 {
+    font-size: 1rem;
+}
+
+.large {
+    font-size: 1.125rem;
+}
+
+#feature {
+    padding: 8rem 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8rem;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+    #feature header {
+        margin-bottom: 4rem;
+    }
+
+#content {
+    max-width: 40rem;
+}
+
+#grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.myMovieImage {
+    width: 100%;
+    height: auto;
+    border: 1px solid black;
+}
+
+@media (max-width: 1200px) {
+    #feature {
+        padding: 6rem 4rem;
+        gap: 4rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 0.875rem;
+    }
+
+    .large {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #feature {
+        flex-direction: column;
+        padding: 4rem 2rem;
+        gap: 2rem;
+        height: auto;
+    }
+
+    #grid {
+        grid-template-columns: 1fr;
+    }
+
+    #content {
+        max-width: 100%;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+        text-align: center;
+    }
+
+    h3 {
+        text-align: center;
+    }
+
+    .large {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    #feature {
+        padding: 2rem 1rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 0.75rem;
+    }
+
+    .large {
+        font-size: 0.875rem;
+    }
+
+    #grid {
+        gap: 1rem;
+    }
+}
